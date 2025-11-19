@@ -29,6 +29,13 @@ TEST(PasswordTest, multi_letter_password)
 TEST(PasswordTest, no_letter_password)
 {
 	Password my_password;
-	int actual = my_password.count_leading_characters("");
-	ASSERT_GT(0, actual);
+	int actual = my_password.count_leading_characters(" ");
+	ASSERT_EQ(0, actual);
+} 
+
+TEST(PasswordTest, same_two_letter_password)
+{
+	Password my_password;
+	int actual = my_password.count_leading_characters("aaZE");
+	ASSERT_EQ(2, actual);
 }
